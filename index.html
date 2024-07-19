@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Background Remover</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Image Background Remover</h1>
+        <div class="input-file">
+            <label for="userImg" class="info_text">Select a File</label>
+            <input type="file" id="userImg" class="form-control-file" required>
+        </div>
+        <div id="dropZone" class="drop-zone">
+            Drag & Drop your image here
+        </div>
+        <div class="slider-container">
+            <label for="thresholdSlider">Adjust Threshold: </label>
+            <input type="range" id="thresholdSlider" min="0" max="255" value="120">
+        </div>
+        <div class="color-picker-container">
+            <label for="bgColorPicker">Select Background Color: </label>
+            <input type="color" id="bgColorPicker" value="#ffffff">
+        </div>
+        <div class="d-flex mb-4">
+            <div id="imagePreview" class="image-preview"></div>
+            <canvas id="bgRemove" class="image-preview"></canvas>
+        </div>
+        <a id="downloadButton" class="btn btn-download" style="display: none;">Download</a>
+        <div>
+            <button id="removeBackground" class="btn btn-primary">Remove Background</button>
+            <button id="undoButton" class="btn btn-secondary">Undo</button>
+            <button id="resetButton" class="btn btn-danger">Reset</button>
+        </div>
+    </div>
+    <div id="loadingIndicator" class="loading-indicator" style="display: none;">Processing...</div>
+    <script async src="https://docs.opencv.org/4.x/opencv.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
